@@ -1,4 +1,4 @@
-"""This script load data from a remote storage"""
+"""This script load data from a remote storage."""
 import os
 import gdown
 import pandas as pd
