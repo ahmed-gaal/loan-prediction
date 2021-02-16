@@ -19,7 +19,7 @@ class TestConfig(unittest.TestCase):
     def test_original_data_path(self):
         con = Config()
         self.assertEqual(
-            con.original, Path('./loan_assets/loan_original/loan.xlsx')
+            con.original, Path('./loan_assets/loan_original/loan.csv')
         )
 
     
