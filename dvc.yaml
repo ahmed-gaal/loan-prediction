@@ -1,0 +1,30 @@
+stages:
+  data extraction:
+    cmd: python loan/load_data.py
+    deps:
+    - loan/load_data.py
+    outs:
+    - loan_assets/loan_data
+  feature extraction:
+    cmd: python loan/feature_extraction.py
+    deps:
+    - loan/feature_extraction.py
+    - loan_assets/loan_data
+    outs:
+    - loan_assets/loan_features
+  model training:
+    cmd: python loan/model_training.py
+    deps:
+    - loan/model_training.py
+    - loan_assets/loan_features
+    outs:
+    - loan_assets/loan_models
+  model evaluation:
+    cmd: python loan/model_evaluate.py
+    deps:
+    - loan/model_evaluate.py
+    - loan_assets/loan_features
+    - loan_assets/loan_models
+    metrics:
+    - loan_assets/loan_metrics:
+        cache: false

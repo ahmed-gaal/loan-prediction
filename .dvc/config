@@ -1,0 +1,4 @@
+[core]
+    analytics = false
+['remote "loan"']
+    url = gdrive://1OoFpGnt8-hZifnjOUBxYawKpuEKwf8RY
