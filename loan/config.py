@@ -8,4 +8,4 @@ class Config:
     data = assets_path / 'loan_data'
     features = assets_path / 'loan_features'
     models = assets_path / 'loan_models'
-    metrics =  assets_path / 'loan_metrics.json'
+    metrics =  assets_path / 'loan_metrics'
