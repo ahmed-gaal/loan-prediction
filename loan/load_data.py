@@ -1,11 +1,10 @@
 """This script load data from a remote storage."""
 import os
 import gdown
-import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
 from config import Config
-from loan_workflow.workflow import Workflow as wf
+from pipeline import Workflow as wf
 
 # Setting the random seed generator
 np.random.seed(42)
@@ -30,5 +29,5 @@ df = wf.load_original_df(str(Config.original))
 df_train, df_test = train_test_split(df, test_size=0.2, random_state=random)
 
 # Saving splitted data to the data path created earlier
-wf.dump_df(df_train, data='train.csv')
-wf.dump_df(df_test, data='test.csv')
+wf.dump_df(df_train, name='train.csv')
+wf.dump_df(df_test, name='test.csv')
