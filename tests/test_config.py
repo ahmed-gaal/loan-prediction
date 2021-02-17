@@ -40,4 +40,4 @@ class TestConfig(unittest.TestCase):
 
     def test_metrics_path(self):
         con = Config()
-        self.assertEqual(con.metrics, Path('./loan_assets/loan_metrics.json'))
+        self.assertEqual(con.metrics, Path('./loan_assets/loan_metrics'))
