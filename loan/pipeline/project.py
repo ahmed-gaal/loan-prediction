@@ -10,7 +10,7 @@ from config import Config
 class Workflow():
     """Create a workflow object"""
 
-    
+
     def __init__(self):
         """Instantiate the object"""
 
@@ -73,13 +73,13 @@ class Workflow():
         """Method to store metrics in a json file."""
         with open(str(Config.metrics / 'metrics.json'), 'w') as outfile:
             json.dump(
-                (dict(precision=pre, weighted=pre1),
+                (dict(average_accuracy=acc, accuracy_std=std_acc),
                  dict(recall=re, weighted=re1),
-                 dict(f1_score=f1, weighted=f2),
-                 dict(average_accuracy=acc, accuracy_std=std_acc)),
+                 dict(precision=pre, weighted=pre1),
+                 dict(f1_score=f1, weighted=f2)),
                  outfile
             )
-    
+
 
     def confusion_matrix(truth, predictions):
         """Method to calculate the confusion matrix of the model."""
