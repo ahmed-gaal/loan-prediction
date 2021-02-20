@@ -28,15 +28,15 @@ model training:
   cmd: python loan/model_training.py
   deps:
   - path: loan/model_training.py
-    md5: c9082f9dda83fceb49bb53c80a660350
-    size: 692
+    md5: 963b808e3c375c4b9424c9ec926dd7dd
+    size: 693
   - path: loan_assets/loan_features
     md5: 39658cf035aee14e437a0f50b40e7a41.dir
     size: 13936
     nfiles: 4
   outs:
   - path: loan_assets/loan_models
-    md5: 24a8d015304f61b7da960a24b9b3e0bb.dir
+    md5: ac64b1fa4143b3ee6cd2237e1c225e71.dir
     size: 5954
     nfiles: 1
 model evaluation:
@@ -50,11 +50,11 @@ model evaluation:
     size: 13936
     nfiles: 4
   - path: loan_assets/loan_models
-    md5: 24a8d015304f61b7da960a24b9b3e0bb.dir
+    md5: ac64b1fa4143b3ee6cd2237e1c225e71.dir
     size: 5954
     nfiles: 1
   outs:
   - path: loan_assets/loan_metrics
-    md5: 7d644892458eff297fbaeeaa4a8eb128.dir
+    md5: 87f1da2edce8eaccee2c4c4195829d3e.dir
     size: 298
     nfiles: 2
