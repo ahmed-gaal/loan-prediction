@@ -22,25 +22,25 @@ class Workflow():
     
     def load_original_df(path):
         """Load dataset into a pandas DataFrame"""
-        df = pd.read_csv(path, engine='python')
-        return df
+        dframe = pd.read_csv(path, engine='python')
+        return dframe
 
     def load_df(path, data=None):
-        df = pd.read_csv(str(path / data))
-        return df
+        dframe = pd.read_csv(str(path / data))
+        return dframe
 
 
     def dump_df(dframe=None, name=None):
         """Method to save a pandas DataFrame in a csv file"""
         dframe.to_csv(str(Config.data / name), index=None)
 
-    
-    def feature_extraction(df):
+
+    def feature_extraction(dframe):
         """
         Method for extracting and preprocessing features from
         the given dataset.
         """
-        ft = df[['PaidMin', 'PropertyArea', 'ApplicantIncome', 'PaidHour',
+        ft = dframe[['PaidMin', 'PropertyArea', 'ApplicantIncome', 'PaidHour',
                  'Purpose', 'LoanAmount', 'Gender']]
         # Scaling the features
         scale = StandardScaler()
@@ -51,17 +51,17 @@ class Workflow():
 
     def load_features(data=None):
         """Method to load features in a dataframe"""
-        df = pd.read_csv(str(Config.features / data))
-        return df
+        dframe = pd.read_csv(str(Config.features / data))
+        return dframe
 
-    
+
     def load_pickle(filename=None, func=None):
         """"Method to load pickle file."""
         return pickle.load(open(
             str(Config.models / filename), func
         ))
 
-    
+
     def dump_pickle(model, filename=None, func=None):
         """Method to store model to pickle file."""
         return pickle.dump(model, open(
@@ -96,4 +96,3 @@ class Workflow():
         con.to_csv(
             str(Config.metrics / 'confusion_matrix.csv')
         )
-
