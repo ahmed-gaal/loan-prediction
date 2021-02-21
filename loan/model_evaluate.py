@@ -4,6 +4,7 @@ from config import Config
 from pipeline import Workflow
 from sklearn.metrics import precision_score, recall_score, accuracy_score
 from sklearn.metrics import f1_score
+from sklearn.model_selection import cross_val_predict
 
 # Create a file directory to save the metrics of the model.
 Workflow.create_file_path(Config.metrics)
@@ -16,7 +17,9 @@ y_test = Workflow.load_features(data='test_target.csv')
 clf = Workflow.load_pickle(filename='model.pickle', func='rb')
 
 # Performing predictions on the loaded model.
-y_pred = clf.predict(X_test)
+y_pred = cross_val_predict(
+    clf, X_test, y_test.to_numpy().ravel(), cv=3, n_jobs=-1, verbose=1
+)
 
 # Calculating metrics for the model based on the predictions.
 prec = precision_score(y_test, y_pred)

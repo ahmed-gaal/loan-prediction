@@ -11,8 +11,8 @@ train_df = Workflow.load_df(Config.data, data='train.csv')
 test_df = Workflow.load_df(Config.data, data='test.csv')
 
 # Perform Feature Extraction and Preprocessing
-train_features = Workflow.feature_extraction(train_df)
-test_features = Workflow.feature_extraction(test_df)
+train_features = Workflow.feature_extraction(train_df, scale=True)
+test_features = Workflow.feature_extraction(test_df, scale=False)
 
 # Saving the preprocessed features to features directory in pandas DataFrame
 pd.DataFrame(

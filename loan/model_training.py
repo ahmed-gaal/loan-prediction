@@ -1,5 +1,5 @@
 """This script performs model selection and model training."""
-from sklearn.svm import SVC
+from sklearn.linear_model import SGDClassifier
 from config import Config
 from pipeline import Workflow
 
@@ -12,7 +12,7 @@ X_train = Workflow.load_df(Config.features, data='train_features.csv')
 y_train = Workflow.load_df(Config.features, data='train_target.csv')
 
 # Instantiating model algorithm
-clf = SVC(C=1.01, kernel='rbf', gamma='scale')
+clf = SGDClassifier(alpha=2.558105, l1_ratio=0.86)
 
 # Fitting features to the algorithm
 clf.fit(X_train, y_train.to_numpy().ravel())
