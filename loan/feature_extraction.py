@@ -16,16 +16,10 @@ test_features = Workflow.feature_extraction(test_df, scale=False)
 
 # Saving the preprocessed features to features directory in pandas DataFrame
 pd.DataFrame(
-    train_features, columns=[
-        'PaidMin', 'PropertyArea', 'ApplicantIncome', 'PaidHour', 'Purpose',
-        'LoanAmount', 'Gender'
-    ]
+    train_features
 ).to_csv(str(Config.features / 'train_features.csv'), index=None)
 pd.DataFrame(
-    test_features, columns=[
-        'PaidMin', 'PropertyArea', 'ApplicantIncome', 'PaidHour', 'Purpose',
-        'LoanAmount', 'Gender'
-    ]
+    test_features
 ).to_csv(str(Config.features / 'test_features.csv'), index=None)
 
 

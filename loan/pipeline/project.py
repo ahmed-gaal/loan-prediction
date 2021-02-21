@@ -35,18 +35,20 @@ class Workflow():
         dframe.to_csv(str(Config.data / name), index=None)
 
 
-    def feature_extraction(dframe):
+    def feature_extraction(dframe, scale: bool):
         """
         Method for extracting and preprocessing features from
         the given dataset.
         """
-        ft = dframe[['PaidMin', 'PropertyArea', 'ApplicantIncome', 'PaidHour',
-                 'Purpose', 'LoanAmount', 'Gender']]
-        # Scaling the features
-        scale = StandardScaler()
-        # Fitting to the train and test sets.
-        scaled = scale.fit_transform(ft)
-        return scaled
+        ft = dframe
+        if scale == True:
+            # Scaling the features
+            scale = StandardScaler()
+            # Fitting to the train and test sets.
+            scaled = scale.fit_transform(ft)
+            return scaled
+        else:
+            return ft
 
 
     def load_features(data=None):
@@ -93,6 +95,7 @@ class Workflow():
             )
         )
 
-        con.to_csv(
-            str(Config.metrics / 'confusion_matrix.csv')
+        con.to_html(
+            str(Config.metrics / 'confusion_matrix.html'),
+            index=True, justify='center'
         )

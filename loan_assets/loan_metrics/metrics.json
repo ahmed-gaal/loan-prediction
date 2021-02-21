@@ -1,1 +1,1 @@
-[{"average_accuracy": 0.45, "accuracy_std": 0.0}, {"recall": 0.7272727272727273, "weighted": 0.45}, {"precision": 0.5, "weighted": 0.3875}, {"f1_score": 0.5925925925925926, "weighted": 0.5925925925925926}]
+[{"average_accuracy": 0.95, "accuracy_std": 0.0}, {"recall": 0.9090909090909091, "weighted": 0.95}, {"precision": 1.0, "weighted": 0.9550000000000001}, {"f1_score": 0.9523809523809523, "weighted": 0.9523809523809523}]
