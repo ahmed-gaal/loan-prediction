@@ -15,5 +15,6 @@
     ],
     "python.testing.nosetestArgs": [
         "tests"
-    ]
+    ],
+    "jupyter.jupyterServerType": "local"
 }
