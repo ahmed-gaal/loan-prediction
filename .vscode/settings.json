@@ -10,6 +10,7 @@
     "python.testing.nosetestsEnabled": false,
     "python.testing.unittestEnabled": true,
     "python.pythonPath": "env/bin/python",
+    "python.linting.pylintPath": "venv/bin/pylint",
     "python.testing.pytestArgs": [
         "tests"
     ],
@@ -17,4 +18,3 @@
         "tests"
     ],
     "jupyter.jupyterServerType": "local"
-}
