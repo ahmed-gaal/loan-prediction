@@ -85,13 +85,14 @@ class Experiment():
         plt.show()
     
 
-    def plot_sunburst(df):
+    def plot_sunburst(dframe):
         """Method to plot sunburt chart"""
         colors = ['#BA4053', '#8FD5D1', '#EE6A27', '#EB4156', '#BC5545', '#B16EAF']
         return px.sunburst(
-            df, path=['Gender', 'Married', 'Dependents', 'Education', 'SelfEmployed',
-                      'CreditHistory', 'PropertyArea', 'LoanStatus', 'Purpose'], 
-                    values='ApplicantIncome', color='ApplicantIncome',
+            dframe, path=['Gender', 'Married', 'Dependents', 'Education',
+                        'SelfEmployed', 'CreditHistory', 'PropertyArea',
+                        'LoanStatus', 'Purpose'], 
+                    values='ApplicantIncome', color='LoanAmount',
                     color_continuous_scale=colors
         )
 
@@ -173,7 +174,7 @@ class Experiment():
         return roc
 
     
-    def plot_roc_curve(fpr, tpr, thresholds,):
+    def plot_roc_curve(fpr, tpr, thresholds):
         """Method to plot roc curve with rich visualization."""
         specs = pd.DataFrame({
             'FALSE POSITIVE RATE': fpr,
@@ -184,8 +185,8 @@ class Experiment():
         specs.columns.name = "Rate"
 
         fig = px.line(
-            specs, title='TPR AND FPR AT EVERY THRESHOLD', width=700,
-            height=1080
+            specs, title='TPR AND FPR AT EVERY THRESHOLD', width=480,
+            height=640
         )
         fig.update_yaxes(scaleanchor="x", scaleratio=1)
         fig.update_xaxes(range=[0, 1], constrain='domain')

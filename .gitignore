@@ -127,4 +127,8 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+<<<<<<< notebooks
 .DS_Store
+=======
+.DS_Store
+>>>>>>> main
